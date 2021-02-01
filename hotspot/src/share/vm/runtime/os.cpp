@@ -443,7 +443,7 @@ void* os::native_java_library() {
       vm_exit_during_initialization("Unable to load native library", ebuf);
     }
 
-#if defined(__OpenBSD__)
+#if defined(__OpenBSD__) || defined(__ANDROID__)
     // Work-around OpenBSD's lack of $ORIGIN support by pre-loading libnet.so
     // ignore errors
     if (dll_build_name(buffer, sizeof(buffer), Arguments::get_dll_dir(),
